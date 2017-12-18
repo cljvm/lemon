@@ -62,8 +62,6 @@
   '[com.lemon.server :as server]
   )
 
-(lein/generate) ; run `boot repl` auto generate project.clj
-
 (task-options!
   pom (merge
         (select-keys (get-env) [:project :version :description :url :license])
@@ -75,6 +73,9 @@
         ;:source-map false
         :compiler-options {}}
   )
+
+; 放到task-options!后面，使用pom的task-option
+(lein/generate) ; run `boot repl` auto generate project.clj
 
 (deftask run
          "run main"
