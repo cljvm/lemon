@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+    <Appenders>
+        <Console name="STDOUT" target="SYSTEM_OUT">
+            <!--<PatternLayout pattern="%d %-5p [%t] %C{2} (%F:%L) - %m%n"/>-->
+            <PatternLayout pattern="[%-5p] [%d{yyyy-MM-dd HH:mm:ss,SSS}] [%t] [%c{2}] [URL=%X{url},METHOD=%X{method}] [%m]%n"/>
+        </Console>
+    </Appenders>
+    <Loggers>
+        <Logger name="com.my.controller.SysPropsController" level="debug" additivity="false">
+            <AppenderRef ref="STDOUT" />
+        </Logger>
+        <logger name="com.mchange" level="debug" additivity="false">
+            <AppenderRef ref="STDOUT"/>
+        </logger>
+        <Root level="info">
+            <AppenderRef ref="STDOUT"/>
+        </Root>
+    </Loggers>
+</Configuration>

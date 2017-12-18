@@ -1,0 +1,33 @@
+{:require [app.core]
+ :init-fns [app.core/main]
+ :compiler-options {:optimizations :simple
+                    :output-dir "resources/web/js"
+                    :pretty-print false
+                    ;:source-map true
+                    :output-wrapper true
+                    :language-in :ecmascript5
+                    :language-out :ecmascript6
+                    ;;externs 让Closure不混淆指定的js变量
+                    ;:externs ["resources/web/js/react.ext.js"]
+                    ;:foreign-libs [{:file-min "resources/web/js/react.min.js"
+                    ;                :file "resources/web/js/react.js"
+                    ;                :provides ["cljsjs.react"]}]
+                    :modules {:cljs-base                    ;;default moudle
+                              ;;不指定entries时，会把所有未指定的entries编译进来
+                              {:output-to "resources/web/js/base.js"}
+                              ;:app1
+                              ;{:output-to  "resources/web/js/app.js"
+                              ; :entries    #{"reagent-tutorial.core"}
+                              ; :depends-on #{:cljs-base}}
+                              ;:app2
+                              ;{:output-to  "resources/web/js/main.js"
+                              ; :entries    #{"simpleexample.main"}}
+                              ;:week_report
+                              ;{:output-to  "resources/web/js/week_report.js"
+                              ; :entries    #{"simpleexample.week-report"}}
+                              ;:week_report1
+                              ;{:output-to  "resources/web/js/week_report1.js"
+                              ; :entries    #{"simpleexample.week-report1"}}
+                              :app
+                              {:output-to  "resources/web/js/app.js"
+                               :entries    #{"app.core"}}}}}
